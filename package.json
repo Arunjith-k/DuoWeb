@@ -1,5 +1,5 @@
 {
-  "name": "deepfake",
+  "name": "douweb",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -40,7 +40,7 @@
   "main": "eslint.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tejusj/DeepFake.git"
+    "url": "https://github.com/Arunjith-k/DuoWeb.git"
   },
   "keywords": [
     "react",
@@ -53,7 +53,7 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tejusj/DeepFake/issues"
+    "url": "https://github.com/Arunjith-k/DuoWeb/issues"
   },
-  "homepage": "https://github.com/Tejusj/DeepFake#readme"
+  "homepage": "https://github.com/Arunjith-k/DuoWeb#readme"
 }
