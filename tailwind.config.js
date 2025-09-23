@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dark: ['DarkFont', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        dark: ['Dark', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         broken: ['Broken', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         living: ['Living', 'ui-sans-serif', 'system-ui', 'sans-serif'],
