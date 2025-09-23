@@ -33,6 +33,8 @@ export default {
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.8s ease-out',
+        // Correctly placed floatUp animation
+        'floatUp': 'floatUp 5s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -42,8 +44,19 @@ export default {
         slideUp: {
           '0%': { transform: 'translateY(50px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
-        }
-      }
+        },
+        // Correctly placed floatUp keyframes
+        floatUp: {
+          '0%': {
+            opacity: '1',
+            transform: 'translateY(0) scale(1) rotate(0deg)'
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'translateY(-200px) scale(0.5) rotate(180deg)'
+          },
+        },
+      },
     },
   },
   plugins: [],
