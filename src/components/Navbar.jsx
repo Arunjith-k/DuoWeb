@@ -7,6 +7,7 @@
   This component also imports `navLinks` from '../constants'. Make sure that file exists.
 */
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -60,10 +61,10 @@ const Navbar = () => {
       {/* The navbar now starts wider (max-w-7xl) and will be animated by GSAP */}
       <nav className="w-full max-w-7xl mx-auto flex justify-between items-center px-6 py-3 rounded-full">
         {/* Logo and Brand Name */}
-        <a href="#home" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src="/images/logo.png" width={32} height={32} />
           <p className="text-white font-dark font-bold text-xl">DuoWeb</p>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links with Aceternity UI hover effect */}
         <ul
@@ -91,12 +92,12 @@ const Navbar = () => {
                   />
                 )}
                 {/* The link text */}
-                <a
-                  href={`#${link.id}`}
+                <Link
+                  to={`/${link.id}`}
                   className="relative z-10 text-sm font-dark text-gray-300 hover:text-white transition-colors duration-300"
                 >
                   {link.title}
-                </a>
+                </Link>
               </motion.li>
             );
           })}
@@ -107,4 +108,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
