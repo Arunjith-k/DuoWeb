@@ -100,7 +100,7 @@ const Hero = () => {
             ref={titleRef}
             className="text-[8vw] md:text-[12vw] lg:text-[15vw] font-dark font-black leading-none tracking-tight mb-4"
           >
-           DUO WEB
+           DUO <span className='text-violet-600'>WEB</span> 
           </h1>
           
           <p

@@ -8,7 +8,61 @@
   font-style: normal;
   font-display: swap;
 }
-
+@font-face {
+  font-family: 'Broken';
+  src: url('./assets/Fonts/Broken.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Living';
+  src: url('./assets/Fonts/Living.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Manuskript';
+  src: url('./assets/Fonts/Manuskript.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Omerta';
+  src: url('./assets/Fonts/Omerta.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Raven';
+  src: url('./assets/Fonts/Raven.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Stroke';
+  src: url('./assets/Fonts/Stroke.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Wells';
+  src: url('./assets/Fonts/Wells.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}@font-face {
+  font-family: 'Yugi';
+  src: url('./assets/Fonts/Yugi.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
