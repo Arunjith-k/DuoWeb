@@ -98,9 +98,9 @@ const Hero = () => {
         <div className="text-center z-10">
           <h1
             ref={titleRef}
-            className="text-[8vw] md:text-[12vw] lg:text-[15vw] font-black leading-none tracking-tight mb-4"
+            className="text-[8vw] md:text-[12vw] lg:text-[15vw] font-dark font-black leading-none tracking-tight mb-4"
           >
-            WEB DUO
+           DUO WEB
           </h1>
           
           <p

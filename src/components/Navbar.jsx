@@ -62,7 +62,7 @@ const Navbar = () => {
         {/* Logo and Brand Name */}
         <a href="#home" className="flex items-center gap-3">
           <img src="/images/logo.png" alt="logo" width={32} height={32} />
-          <p className="text-white font-bold text-xl">Velvet Pour</p>
+          <p className="text-white font-dark font-bold text-xl">DuoWeb</p>
         </a>
 
         {/* Desktop Navigation Links with Aceternity UI hover effect */}
@@ -93,7 +93,7 @@ const Navbar = () => {
                 {/* The link text */}
                 <a
                   href={`#${link.id}`}
-                  className="relative z-10 text-sm text-gray-300 hover:text-white transition-colors duration-300"
+                  className="relative z-10 text-sm font-dark text-gray-300 hover:text-white transition-colors duration-300"
                 >
                   {link.title}
                 </a>
