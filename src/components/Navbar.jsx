@@ -62,7 +62,7 @@ const Navbar = () => {
       <nav className="w-full max-w-7xl mx-auto flex justify-between items-center px-6 py-3 rounded-full">
         {/* Logo and Brand Name */}
         <Link to="/" className="flex items-center gap-3">
-          <img src="/images/logo.png" width={32} height={32} />
+          <img src="src\assets\Images\DuoWeb.png" width={32} height={32} />
           <p className="text-white font-dark font-bold text-xl">DuoWeb</p>
         </Link>
 
