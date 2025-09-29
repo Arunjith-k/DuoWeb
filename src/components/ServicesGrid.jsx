@@ -1,5 +1,12 @@
 import { useState, useRef } from "react";
 
+// Imports your specific video files from the assets folder
+import webDevVideo from '../assets/videos/WEB_DEVELOPMENT.mp4';
+import uiVideo from '../assets/videos/ui.mp4';
+import graphicsVideo from '../assets/videos/GRAPHICS.mp4';
+import customSolutionsVideo from '../assets/videos/CUSTOM_SOLUTIONS.mp4';
+
+
 // --- BENTO GRID HELPER COMPONENTS ---
 
 const BentoTilt = ({ children, className = "" }) => {
@@ -60,7 +67,6 @@ const BentoCard = ({ src, title, description }) => {
 // --- BENTO GRID SECTION COMPONENT ---
 
 const ServicesGrid = () => (
-    // The "section-animate" class can be used by GSAP if you import this into the Hero component
     <section className="section-animate w-full max-w-7xl mx-auto py-24">
         <div className="container mx-auto px-4 md:px-10">
             <h1 className="mb-12 text-center text-4xl font-dark tracking-tight md:text-6xl">
@@ -69,28 +75,28 @@ const ServicesGrid = () => (
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-7">
                 <BentoTilt className="md:col-span-2 h-96 md:h-[30rem] font-dark">
                     <BentoCard
-                        src="videos/feature-1.mp4" // Replace with your video
+                        src={webDevVideo}
                         title="Web Development"
                         description="Your concept, our code. Responsive and fast websites tailored to your goals."
                     />
                 </BentoTilt>
                 <BentoTilt className="h-96 md:h-[30rem] font-dark">
                     <BentoCard
-                        src="videos/feature-2.mp4" // Replace with your video
+                        src={uiVideo}
                         title="UI/UX Design"
                         description="We listen to your users’ needs and craft engaging, user-first experiences."
                     />
                 </BentoTilt>
                 <BentoTilt className="h-96 md:h-[30rem] font-dark">
                     <BentoCard
-                        src="videos/feature-3.mp4" // Replace with your video
+                        src={graphicsVideo}
                         title="Branding & Graphics"
                         description="From your story, we build visuals that speak for your brand."
                     />
                 </BentoTilt>
                 <BentoTilt className="md:col-span-2 h-96 md:h-[30rem] font-dark">
                     <BentoCard
-                        src="videos/feature-4.mp4" // Replace with your video
+                        src={customSolutionsVideo}
                         title="Custom Solutions"
                         description="Unique ideas deserve unique solutions — we collaborate with you to build exactly what you need."
                     />
@@ -100,6 +106,4 @@ const ServicesGrid = () => (
     </section>
 );
 
-
 export default ServicesGrid;
-
