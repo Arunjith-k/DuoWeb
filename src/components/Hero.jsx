@@ -221,10 +221,9 @@ const Hero = () => {
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="mb-16">
                         <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-wide opacity-80 mb-8">
-                            SO WE BUILT
                         </p>
-                        <h2 className="text-[6vw] md:text-[8vw] lg:text-[10vw] font-black leading-none tracking-tight mb-8">
-                            WEB DUO
+                        <h2 className="text-[5vw] md:text-[8vw] lg:text-[10vw] font-black leading-none tracking-tight mb-8">
+                            THE BEST WAY TO PREDICT <br/> FUTURE IS TO CREATE IT
                         </h2>
                     </div>
                 </div>
