@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import servicesGrid from "./ServicesGrid.jsx";
 import ServicesGrid from "./ServicesGrid.jsx";
+import WhyWorkWithUs from "./WhyWorkWithUs.jsx";
 // Register GSAP plugins
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -30,79 +30,52 @@ const Hero = () => {
 
     const fontClasses = fontConfigs.map((config) => config.class);
 
-    useEffect(() => {
-        // Initialize Lenis for smooth scrolling
-        const lenis = new Lenis({
-            lerp: 0.1,
-            smoothWheel: true,
-        });
+    // In Hero.jsx, ensure this is your EXACT useEffect hook.
 
-        // Sync Lenis with GSAP's ticker for optimal performance
-        const update = (time) => lenis.raf(time * 1000);
-        gsap.ticker.add(update);
-        gsap.ticker.lagSmoothing(0);
+    useEffect(() => {
+        // 1. CORRECT LENS & GSAP SETUP
+        const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+
         lenis.on("scroll", ScrollTrigger.update);
 
-        // --- GSAP Initial Animations ---
+        const update = (time) => {
+            lenis.raf(time * 1000);
+        };
+        gsap.ticker.add(update);
+        gsap.ticker.lagSmoothing(0);
+
+        // --- YOUR OTHER ANIMATIONS ---
         const tl = gsap.timeline({ delay: 0.5 });
-        tl.fromTo(
-            titleRef.current,
-            { y: 100, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" }
-        )
-            .fromTo(
-                subtitleRef.current,
-                { y: 50, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
-                "-=0.6"
-            )
-            .fromTo(
-                scrollTextRef.current,
-                { y: 30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
-                "-=0.4"
-            );
+        tl.fromTo(titleRef.current, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" })
+            .fromTo(subtitleRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.6")
+            .fromTo(scrollTextRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4");
 
-        // --- GSAP Font Cycling Animation ---
-        const fontCycleTL = gsap.timeline({
-            repeat: -1,
-        });
-
+        const fontCycleTL = gsap.timeline({ repeat: -1 });
         fontConfigs.forEach((config) => {
             fontCycleTL
                 .add(() => {
                     if (!webTextRef.current) return;
-                    fontClasses.forEach((font) =>
-                        webTextRef.current.classList.remove(font)
-                    );
+                    fontClasses.forEach((font) => webTextRef.current.classList.remove(font));
                     webTextRef.current.classList.add(config.class);
-                    gsap.set(webTextRef.current, {
-                        scale: config.scale,
-                        transformOrigin: "center center",
-                    });
+                    gsap.set(webTextRef.current, { scale: config.scale, transformOrigin: "center center" });
                 })
-                .to({}, { duration: 1.2 }); // Wait for 1.2 seconds
+                .to({}, { duration: 1.2 });
         });
 
-        // --- GSAP Scroll-Triggered Animations ---
         gsap.utils.toArray(".section-animate").forEach((section) => {
-            gsap.fromTo(
-                section,
-                { y: 100, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: section,
-                        start: "top 80%",
-                    },
-                }
-            );
+            gsap.fromTo(section, { y: 100, opacity: 0 }, {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                },
+            });
         });
 
-        // --- Cleanup Function ---
+        // --- CLEANUP FUNCTION ---
         return () => {
             gsap.ticker.remove(update);
             lenis.destroy();
@@ -144,7 +117,7 @@ const Hero = () => {
 
                     <p
                         ref={subtitleRef}
-                        className="text-sm md:text-base lg:text-lg font-light tracking-[0.3em] opacity-70 mb-8"
+                        className="text-sm md:text-base lg:text-lg font-dark tracking-[0.3em] opacity-70 mb-8"
                     >
                         FreeLancing Agency
                     </p>
@@ -155,10 +128,10 @@ const Hero = () => {
                     className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center"
                 >
                     <div className="flex flex-col items-center space-y-4">
-                        <p className="text-sm font-light tracking-[0.2em] opacity-60">
+                        <p className="text-sm font-dark tracking-[0.2em] opacity-60">
                             SCROLL
                         </p>
-                        <p className="text-sm font-light tracking-[0.2em] opacity-60">
+                        <p className="text-sm font-dark tracking-[0.2em] opacity-60">
                             TO EXPLORE
                         </p>
                         <div className="w-px h-16 bg-white/20"></div>
@@ -169,13 +142,13 @@ const Hero = () => {
             {/* --- DUO PHILOSOPHY SECTION (MODIFIED) --- */}
             <section className="section-animate min-h-screen flex flex-col justify-center items-center px-6 md:px-12 relative">
                 <div className="w-full max-w-6xl text-left z-10">
-                    <p className="text-lg md:text-xl lg:text-2xl font-light tracking-[0.2em] opacity-80 mb-8">
+                    <p className="text-lg md:text-xl lg:text-2xl font-dark tracking-[0.2em] opacity-80 mb-8">
                         THE DUO PHILOSOPHY
                     </p>
-                    <p className="text-base md:text-lg font-light tracking-[0.15em] opacity-60 mb-16">
+                    <p className="text-base md:text-lg font-dark tracking-[0.15em] opacity-60 mb-16">
                         The ‘Duo’ in Duo_Web isn’t just our team — it’s the bond we form with you. We believe collaboration is the heart of creativity. When you bring your goals, and we bring our skills, we become a duo that makes ideas real. Together, we design, develop, and deliver.
                     </p>
-                    <p className="text-sm md:text-base font-light tracking-[0.1em] opacity-50 mb-8">
+                    <p className="text-sm md:text-base font-dark tracking-[0.1em] opacity-50 mb-8">
                         WEBSITE DESIGNED BY OUR TEAM.
                     </p>
 
@@ -240,45 +213,9 @@ const Hero = () => {
 
             </section>
 
-            <section className="section-animate min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
-                <div className="max-w-6xl mx-auto">
-                    <div className="mb-16">
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide opacity-80 mb-8">
-                            Rethinking smooth scroll
-                        </h2>
-                        <p className="text-lg md:text-xl font-light leading-relaxed opacity-90 mb-12">
-                            We have to give props to libraries like{" "}
-                            <span className="underline">Locomotive Scroll</span> and{" "}
-                            <span className="underline">GSAP ScrollSmoother</span>. They're
-                            well built and well documented – and we've used them a lot. But
-                            they still have issues that keep them from being bulletproof.
-                        </p>
-                    </div>
+            <WhyWorkWithUs />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <ProblemCard
-                            number="01"
-                            title="LOSS OF PERFORMANCE BUDGET DUE TO USING CSS TRANSFORMS"
-                        />
-                        <ProblemCard
-                            number="02"
-                            title="INACCESSIBILITY FROM NO PAGE SEARCH SUPPORT AND NATIVE SCROLLBAR"
-                        />
-                        <ProblemCard
-                            number="03"
-                            title="NON-NEGLIGIBLE IMPORT COSTS (12.1KB - 24.34KB GZIPPED)"
-                        />
-                        <ProblemCard
-                            number="04"
-                            title="LIMITED ANIMATION SYSTEMS FOR COMPLEX, SCROLL-BASED ANIMATIONS"
-                        />
-                        <ProblemCard
-                            number="05"
-                            title="ERASING NATIVE APIS LIKE INTERSECTION-OBSERVER, CSS STICKY, ETC."
-                        />
-                    </div>
-                </div>
-            </section>
+
 
             <section className="section-animate min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
                 <div className="max-w-6xl mx-auto text-center">
@@ -287,7 +224,7 @@ const Hero = () => {
                             SO WE BUILT
                         </p>
                         <h2 className="text-[6vw] md:text-[8vw] lg:text-[10vw] font-black leading-none tracking-tight mb-8">
-                            WEB SCROLLING
+                            WEB DUO
                         </h2>
                     </div>
                 </div>

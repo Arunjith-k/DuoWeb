@@ -63,32 +63,32 @@ const ServicesGrid = () => (
     // The "section-animate" class can be used by GSAP if you import this into the Hero component
     <section className="section-animate w-full max-w-7xl mx-auto py-24">
         <div className="container mx-auto px-4 md:px-10">
-            <h1 className="mb-12 text-center text-4xl font-bold tracking-tight md:text-6xl">
+            <h1 className="mb-12 text-center text-4xl font-dark tracking-tight md:text-6xl">
                 What We Create, Together
             </h1>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-7">
-                <BentoTilt className="md:col-span-2 h-96 md:h-[30rem]">
+                <BentoTilt className="md:col-span-2 h-96 md:h-[30rem] font-dark">
                     <BentoCard
                         src="videos/feature-1.mp4" // Replace with your video
                         title="Web Development"
                         description="Your concept, our code. Responsive and fast websites tailored to your goals."
                     />
                 </BentoTilt>
-                <BentoTilt className="h-96 md:h-[30rem]">
+                <BentoTilt className="h-96 md:h-[30rem] font-dark">
                     <BentoCard
                         src="videos/feature-2.mp4" // Replace with your video
                         title="UI/UX Design"
                         description="We listen to your users’ needs and craft engaging, user-first experiences."
                     />
                 </BentoTilt>
-                <BentoTilt className="h-96 md:h-[30rem]">
+                <BentoTilt className="h-96 md:h-[30rem] font-dark">
                     <BentoCard
                         src="videos/feature-3.mp4" // Replace with your video
                         title="Branding & Graphics"
                         description="From your story, we build visuals that speak for your brand."
                     />
                 </BentoTilt>
-                <BentoTilt className="md:col-span-2 h-96 md:h-[30rem]">
+                <BentoTilt className="md:col-span-2 h-96 md:h-[30rem] font-dark">
                     <BentoCard
                         src="videos/feature-4.mp4" // Replace with your video
                         title="Custom Solutions"
