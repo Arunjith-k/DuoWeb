@@ -212,21 +212,16 @@ const Hero = () => {
                 <ServicesGrid />
 
             </section>
+            <section>
+                <WhyWorkWithUs />
+            </section>
 
-            <WhyWorkWithUs />
 
 
-
-            <section className="section-animate min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
-                <div className="max-w-6xl mx-auto text-center">
-                    <div className="mb-16">
-                        <p className="text-2xl md:text-4xl lg:text-5xl font-light tracking-wide opacity-80 mb-8">
-                        </p>
-                        <h2 className="text-[5vw] md:text-[8vw] lg:text-[10vw] font-black leading-none tracking-tight mb-8">
-                            THE BEST WAY TO PREDICT <br/> FUTURE IS TO CREATE IT
-                        </h2>
-                    </div>
-                </div>
+            <section className="min-h-screen flex justify-center items-start px-6 md:px-12 pt-16">
+                <h2 className="text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight">
+                    WORKS
+                </h2>
             </section>
         </div>
     );
