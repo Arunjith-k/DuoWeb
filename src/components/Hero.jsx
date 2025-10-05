@@ -2,7 +2,13 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
+<<<<<<< Updated upstream
 
+=======
+import ServicesGrid from "./ServicesGrid.jsx";
+import WhyWorkWithUs from "./WhyWorkWithUs.jsx";
+import myLocalVideo from '../assets/videos/God_Hand.mp4';
+>>>>>>> Stashed changes
 // Register GSAP plugins
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -142,12 +148,124 @@ const Hero = () => {
             </span>
           </h1>
 
+<<<<<<< Updated upstream
           <p
             ref={subtitleRef}
             className="text-sm md:text-base lg:text-lg font-light tracking-[0.3em] opacity-70 mb-8"
           >
             FreeLancing Agency
           </p>
+=======
+                    <p
+                        ref={subtitleRef}
+                        className="text-sm md:text-base lg:text-lg font-dark tracking-[0.3em] opacity-70 mb-8"
+                    >
+                        FreeLancing Agency
+                    </p>
+                </div>
+
+                <div
+                    ref={scrollTextRef}
+                    className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center"
+                >
+                    <div className="flex flex-col items-center space-y-4">
+                        <p className="text-sm font-dark tracking-[0.2em] opacity-60">
+                            SCROLL
+                        </p>
+                        <p className="text-sm font-dark tracking-[0.2em] opacity-60">
+                            TO EXPLORE
+                        </p>
+                        <div className="w-px h-16 bg-white/20"></div>
+                    </div>
+                </div>
+            </section>
+
+            {/* --- DUO PHILOSOPHY SECTION (MODIFIED) --- */}
+<section className="min-h-screen flex items-center justify-center px-6 md:px-12">
+    <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        
+        {/* --- Column 1: Text Content --- */}
+        <div className="text-left">
+            <p className="text-lg md:text-xl lg:text-2xl font-dark tracking-[0.2em] opacity-80 mb-8">
+                THE DUO PHILOSOPHY
+            </p>
+            <p className="text-base md:text-lg font-dark tracking-[0.15em] opacity-60 mb-16">
+                The ‘Duo’ in Duo_Web isn’t just our team — it’s the bond we form with you. We believe collaboration is the heart of creativity. When you bring your goals, and we bring our skills, we become a duo that makes ideas real. Together, we design, develop, and deliver.
+            </p>
+            
+        </div>
+
+        {/* --- Column 2: Video Section --- */}
+        <div className="w-full h-full flex items-center justify-center">
+            <video 
+                className="w-full h-auto rounded-lg shadow-2xl object-cover"
+                src={myLocalVideo}
+                type="video/mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+            >
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+    </div>
+</section>
+
+            {/*  <section className="section-animate min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
+                <div className="max-w-6xl mx-auto text-center">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide opacity-80 mb-16">
+                        What We Create, Together
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+                        <div className="text-left">
+                            <h3 className="text-lg font-semibold mb-4 uppercase tracking-wide">
+                                CREATE MORE IMMERSIVE INTERFACES
+                            </h3>
+                            <p className="text-base font-light opacity-80 leading-relaxed">
+                                Unlock the creative potential and impact of your web
+                                experiences. Smoothing the scroll pulls users into the flow of
+                                the experience that feels so substantial that they forget
+                                they're navigating a web page.
+                            </p>
+                        </div>
+
+                        <div className="text-left">
+                            <h3 className="text-lg font-semibold mb-4 uppercase tracking-wide">
+                                NORMALIZE ALL YOUR USER INPUTS
+                            </h3>
+                            <p className="text-base font-light opacity-80 leading-relaxed">
+                                Give all your users the same (dope) experience whether they're
+                                using trackpads, mouse wheels, or otherwise. With smooth scroll,
+                                you control how silky, heavy, or responsive the experience
+                                should be — no matter the input. Magic!
+                            </p>
+                        </div>
+
+                        <div className="text-left">
+                            <h3 className="text-lg font-semibold mb-4 uppercase tracking-wide">
+                                MAKE YOUR ANIMATIONS FLAWLESS
+                            </h3>
+                            <p className="text-base font-light opacity-80 leading-relaxed">
+                                Synchronization with native scroll is not reliable. Those jumps
+                                and delays with scroll-linked animations are caused by
+                                multi-threading, where modern browsers run animations/effects
+                                asynchronously with the scroll. Smooth scroll fixes this.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section> */}
+            <section>
+                <ServicesGrid />
+
+            </section>
+
+            <WhyWorkWithUs />
+
+>>>>>>> Stashed changes
         </div>
 
         <div
