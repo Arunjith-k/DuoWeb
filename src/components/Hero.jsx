@@ -163,6 +163,13 @@ const Hero = () => {
                 </div>
             </section>
 
+
+            <section className="min-h-screen flex justify-center items-start px-6 md:px-12 pt-16">
+                <h2 className="text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight">
+                    WORKS
+                </h2>
+            </section>
+
             {/*  <section className="section-animate min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
                 <div className="max-w-6xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide opacity-80 mb-16">
@@ -218,11 +225,7 @@ const Hero = () => {
 
 
 
-            <section className="min-h-screen flex justify-center items-start px-6 md:px-12 pt-16">
-                <h2 className="text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight">
-                    WORKS
-                </h2>
-            </section>
+
         </div>
     );
 };
