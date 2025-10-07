@@ -91,14 +91,15 @@ const WhyWorkWithUs = () => {
 
     return (
         // The parent section needs enough vertical space for the scrolling effect to be visible.
-        <section ref={componentRef} className="bg-black text-white py-24 md:py-32 font-dark" style={{ minHeight: '150vh' }}>
-            <div className="max-w-6xl mx-auto px-6 md:px-12">
+        <section ref={componentRef} className="bg-black text-white py-24 md:py-32 font-dark" style={{ minHeight: '120vh' }}>
+            <div className="max-w-6xl mx-auto pt-20 px-6 md:px-12">
                 <div className="md:grid md:grid-cols-3 md:gap-16">
                     {/* Left column that will now scroll with the right */}
-                    <div ref={leftColRef} className="md:col-span-1 py-8">
+                    <div ref={leftColRef} className="md:col-span-1 py-8 flex justify-center items-center">
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-wide opacity-90 mb-8 leading-tight">
-                            Why Work<br />
-                            With Duo_Web?
+                            Why Work<br/>
+                            With<br/> Duo <span style={{ color: '#9914ba' }}>Web</span>
+
                         </h2>
                     </div>
                     {/* Right column that scrolls naturally */}
