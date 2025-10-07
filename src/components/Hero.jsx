@@ -195,9 +195,6 @@ const Hero = () => {
                 </div>
             </section>
                 <section>
-                    <h1 className="text-white text-center text-6xl md:text-8xl font-dark pt-20 pb-10">
-                        WORKS
-                    </h1>
                     <Works />
                 </section>
             {/* Services Section */}
