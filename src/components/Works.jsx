@@ -18,8 +18,8 @@ const worksData = [
     { id: 2, title: 'Madrid Fashion Week', image: secondImage, year: '2026', indicator: '/ D S G N 2', side: 'right' },
     { id: 3, title: 'Tokyo Fashion Week', image: thirdImage, year: '2026', indicator: '/ D S G N 3', side: 'left' },
     { id: 4, title: 'Kyiv Fashion Week', image: fourthImage, year: '2026', indicator: '/ D S G N 4', side: 'right' },
-    { id: 5, title: 'Milan Fashion Week', image: fifthImage, year: '2026', indicator: '/ D S G N 5', side: 'left' },
-    { id: 6, title: 'Paris Fashion Week', image: sixthImage, year: '2026', indicator: '/ D S G N 6', side: 'right' },
+    //{ id: 5, title: 'Milan Fashion Week', image: fifthImage, year: '2026', indicator: '/ D S G N 5', side: 'left' },
+    //{ id: 6, title: 'Paris Fashion Week', image: sixthImage, year: '2026', indicator: '/ D S G N 6', side: 'right' },
 ];
 
 const Works = () => {
@@ -61,8 +61,11 @@ const Works = () => {
     }, []);
 
     return (
-        <div ref={componentRef} className="bg-black text-white w-full overflow-x-hidden font-sans">
-            <main className="py-20">
+        <div ref={componentRef} className="bg-black text-white w-full overflow-x-hidden font-sans pt-20">
+            <div className="flex -mb-30 justify-center items-center ">
+                <h2 className='text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight'>WORKS</h2>
+            </div>
+            <main className="pb-20 -pt-50">
                 {worksData.map((work) => (
                     <section
                         key={work.id}
@@ -74,14 +77,14 @@ const Works = () => {
                             <div className="w-1/2 relative flex items-center">
                                 {/* This div now wraps all text and is used for the animation */}
                                 <div className="text-content">
-                                    <h2 className="text-5xl md:text-8xl lg:text-9xl font-bold uppercase text-white/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
+                                    <h2 className="text-5xl md:text-8xl lg:text-9xl font-bold uppercase text-zinc-500/30 -z-10 absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
                                         {work.year}
                                     </h2>
                                     <p className="text-4xl md:text-5xl font-bold uppercase">
                                         {work.title}
                                     </p>
                                     {/* --- NEW DESCRIPTION ADDED HERE --- */}
-                                    <p className="mt-4 text-base font-light max-w-md text-white/80">
+                                    <p className="mt-4 text-base font-light max-w-md text-white">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                     </p>
                                 </div>
