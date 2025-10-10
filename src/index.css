@@ -63,6 +63,31 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Works in Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 4px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #9333EA; /* Tailwind gray-200 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000; /* Tailwind indigo-500 */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7E22CE; /* Tailwind indigo-600 */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color:#9333EA #000000 ;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
