@@ -7,6 +7,7 @@ import WhyWorkWithUs from "./WhyWorkWithUs.jsx";
 import MetallicShapes from "./MetallicShapes.jsx";
 import WorkDetails from "./WorkDetails.jsx";
 import Works from "./Works.jsx";
+import Services from "./Services.jsx";
 // Register GSAP plugins
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -198,12 +199,14 @@ const Hero = () => {
                     <Works />
                 </section>
             {/* Services Section */}
-            <section className="min-h-screen w-full flex flex-col items-center px-6 md:px-12 pt-16">
-                <h2 className="text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight mb-8">
+            <section className="min-h-screen w-full flex flex-col pt-16">
+                <h2 className="text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight mb-8 px-6 md:px-12">
+                    {/* Padding is NOW on the h2, not the section */}
                     SERVICES
                 </h2>
-                <WorkDetails />
+                <Services /> {/* This component now has the full viewport width to use */}
             </section>
+
 
             <section>
                 <WhyWorkWithUs />

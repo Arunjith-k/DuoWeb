@@ -82,7 +82,7 @@ const ServicesGrid = () => (
                 </BentoTilt>
                 <BentoTilt className="h-96 md:h-[30rem] font-dark">
                     <BentoCard
-                        src={uiVideo}
+
                         title="UI/UX Design"
                         description="We listen to your users’ needs and craft engaging, user-first experiences."
                     />
