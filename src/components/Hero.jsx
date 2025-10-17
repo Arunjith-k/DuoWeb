@@ -123,7 +123,9 @@ const Hero = () => {
             className="min-h-screen bg-black text-white font-sans overflow-hidden"
         >
             {/* Hero Section */}
-            <section className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
+            <section
+                id='landing_pg'
+                className="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12">
                 <div className="absolute inset-0 opacity-5">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
                 </div>
@@ -158,7 +160,8 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col items-center gap-2">
-                        <button
+                        <a
+                            href="#works"
                             ref={buttonRef} // 👈 button ref added
                             className="
                 px-8 py-3
@@ -178,7 +181,7 @@ const Hero = () => {
               "
                         >
                             See Our Works
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -194,8 +197,8 @@ const Hero = () => {
                         <div className="w-px h-16 bg-white/20"></div>
                     </div>
                 </div>
-            </section>
-                <section>
+            </section >
+                <section id="works">
                     <Works />
                 </section>
             {/* Services Section */}

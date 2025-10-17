@@ -32,6 +32,11 @@ const Footer = () => {
     const footerRef = useRef(null);
     const textLines = ["Let's build", "something cool"];
 
+    const instagram = import.meta.env.VITE_INSTAGRAM_URL;
+const whatsapp = import.meta.env.VITE_WHATSAPP_URL;
+const email = import.meta.env.VITE_EMAIL_URL;
+
+
     useEffect(() => {
         // GSAP scroll-triggered animation for the negative mask effect.
         const gsapCheck = setInterval(() => {
@@ -62,6 +67,7 @@ const Footer = () => {
 
     return (
         <footer
+            id='contact'
             ref={footerRef}
             className="relative h-screen w-full bg-purple-900 text-white flex flex-col justify-between p-8 overflow-hidden"
         >
@@ -90,15 +96,15 @@ const Footer = () => {
                     <div className="max-w-md">
                         <p className="mb-6 font-light text-white/80">Or get in touch here</p>
                         <div className="flex flex-col gap-4">
-                            <SocialLink href="#">Instagram</SocialLink>
-                            <SocialLink href="#">LinkedIn</SocialLink>
-                            <SocialLink href="#">Contact</SocialLink>
+                            <SocialLink href={instagram}>Instagram</SocialLink>
+                            <SocialLink href={whatsapp} target="_blank" >Whatsapp</SocialLink>
+                            <SocialLink href={email}>Email</SocialLink>
                         </div>
                     </div>
                 </div>
                 <div className="flex justify-between items-center text-sm font-light text-white/60">
                     <p>&copy; {new Date().getFullYear()} DUO WEB</p>
-                    <div className="flex gap-6">
+                    <div className="hidden  gap-6">
                         <a href="#" className="hover:text-white transition-colors">Imprint</a>
                         <a href="#" className="hover:text-white transition-colors">Privacy</a>
                     </div>

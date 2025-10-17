@@ -18,16 +18,16 @@ const worksData = [
         id: 1,
         title: 'Zelion',
         image: firstImage,
-        year: '2026',
+        year: '2025',
         indicator: '/ D S G N 1',
         side: 'right',
-        description: 'elion Sportswear – A sleek, responsive website designed to showcase premium athletic apparel with a focus on modern design, product highlights, and smooth user experience'
+        description: 'Zelion Sportswear – A sleek, responsive website designed to showcase premium athletic apparel with a focus on modern design, product highlights, and smooth user experience'
     },
     {
         id: 2,
         title: 'Iris Deodrant',
         image: secondImage,
-        year: '2026',
+        year: '2025',
         indicator: '/ D S G N 2',
         side: 'left',
         description: 'Iris Deodorant – A clean, modern, and responsive website created for a deodorant brand, featuring product showcases, vibrant visuals, and smooth navigation to highlight freshness and quality'
@@ -36,7 +36,7 @@ const worksData = [
         id: 3,
         title: 'Golden Spoon',
         image: thirdImage,
-        year: '2026',
+        year: '2025',
         indicator: '/ D S G N 3',
         side: 'right',
         description: 'The Golden Spoon website is a modern, responsive platform showcasing the restaurant\'s menu, ambience, and services. It features an elegant, user-friendly design optimized for browsing and making reservations.'
@@ -45,7 +45,7 @@ const worksData = [
         id: 4,
         title: 'FOVO',
         image: fourthImage,
-        year: '2026',
+        year: '2025',
         indicator: '/ D S G N 4',
         side: 'left',
         description: 'Fovo is a website dedicated to showcasing an extensive collection of designer bags. The platform is organized into a wide variety of categories, allowing shoppers to easily browse and discover styles that match their preferences.'
@@ -92,7 +92,8 @@ const Works = () => {
     }, []);
 
     return (
-        <div ref={componentRef} className="bg-black text-white w-full overflow-x-hidden font-sans">
+        <div 
+            ref={componentRef} className="bg-black text-white w-full overflow-x-hidden font-sans">
             <div className="flex justify-center items-center pt-20 pb-10 md:pb-20">
                 <h2 className="text-center text-[5vw] md:text-[8vw] lg:text-[10vw] font-dark leading-none tracking-tight">
                     WORKS
@@ -109,7 +110,7 @@ const Works = () => {
                             relative min-h-screen w-full 
                             flex flex-col ${work.side === 'left' ? 'md:flex-row-reverse' : 'md:flex-row'}
                             items-center justify-center md:justify-between 
-                            gap-12 md:gap-16 
+                            gap-8 md:gap-16 
                             px-8 md:px-16 
                             overflow-hidden
                         `}

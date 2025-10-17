@@ -1,44 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-// --- Import images ---
-import firstImg from '../assets/images/web-development.jpg';
-import secondImg from '../assets/images/ui-ux.jpg';
-import thirdImg from '../assets/images/custom-solutions.jpg';
-import fourthImg from '../assets/images/app-design.jpg';
-
-// --- Data ---
+import video1 from '../assets/Videos/web.mp4';
+import video2 from '../assets/Videos/uides.mp4';
+import video3 from '../assets/Videos/custm.mp4';
 const servicesData = [
     {
         id: 1,
         category: '01',
         title: 'WEB DEVELOPMENT',
-        imageUrl: firstImg,
-        services: [],
+        videoUrl: video1,
         description: 'We build high-performance, responsive websites that are fast, secure, and look stunning on all devices.',
     },
     {
         id: 2,
         category: '02',
         title: 'UI/UX DESIGN',
-        imageUrl: secondImg,
-        services: [],
+        videoUrl: video2,
         description: 'Our user-centered approach creates intuitive and beautiful interfaces that are a pleasure to use.',
     },
     {
         id: 3,
         category: '03',
         title: 'CUSTOM SOLUTIONS',
-        imageUrl: thirdImg,
-        services: [],
+        videoUrl: video3,
         description: 'We build bespoke applications, tailored to your unique challenges and designed to streamline operations.',
-    },
-    {
-        id: 4,
-        category: '04',
-        title: 'BRANDING AND GRAPHICS',
-        imageUrl: fourthImg,
-        services: [],
-        description: 'We craft memorable logos and compelling visual identities that capture your brand\'s essence.',
     },
 ];
 
@@ -48,30 +33,23 @@ export default function Services() {
     const cardRefs = useRef([]);
     const [isGsapLoaded, setIsGsapLoaded] = useState(false);
 
-    // Effect to dynamically load the GSAP script
+    // Dynamically load GSAP
     useEffect(() => {
         const script = document.createElement('script');
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
         script.async = true;
         script.onload = () => setIsGsapLoaded(true);
         document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
+        return () => document.body.removeChild(script);
     }, []);
 
-    // Add card elements to the ref array
     const addToRefs = (el) => {
-        if (el && !cardRefs.current.includes(el)) {
-            cardRefs.current.push(el);
-        }
+        if (el && !cardRefs.current.includes(el)) cardRefs.current.push(el);
     };
 
-    // Effect to set up animations, runs after GSAP is loaded
+    // GSAP hover animations
     useEffect(() => {
         if (!isGsapLoaded || cardRefs.current.length === 0) return;
-
         const cards = cardRefs.current;
         const gsap = window.gsap;
         const listeners = [];
@@ -80,67 +58,41 @@ export default function Services() {
             if (!cards[0]) return;
             const normalWidth = cards[0].offsetWidth;
             const expandedWidth = normalWidth * 1.5;
-            const initialImageScale = 0.6;
+            const initialScale = 0.6;
 
             cards.forEach((card, index) => {
-                const image = card.querySelector('.card-image');
+                const video = card.querySelector('.card-video');
                 const descriptionWrapper = card.querySelector('.card-description-wrapper');
                 const descriptionText = card.querySelector('.card-description-text');
                 const overlay = card.querySelector('.card-overlay');
 
-                if (!image || !descriptionWrapper || !descriptionText || !overlay) {
-                    console.warn("GSAP animation target not found in card:", card);
-                    return;
-                }
+                if (!video || !descriptionWrapper || !descriptionText || !overlay) return;
 
-                gsap.set(image, { scale: initialImageScale });
+                gsap.set(video, { scale: initialScale });
                 gsap.set(overlay, { backgroundColor: 'rgba(0,0,0,0.6)' });
 
                 const handleMouseEnter = () => {
                     gsap.killTweensOf(descriptionWrapper);
-
-                    // --- FIX 1: Removed the onComplete wrapper ---
-                    gsap.to(card, {
-                        width: expandedWidth,
-                        duration: 0.6,
-                        ease: 'power3.out',
-                    });
-
-                    // --- FIX 2: Animate text at the same time and faster ---
-                    gsap.to(descriptionWrapper, {
-                        height: descriptionText.offsetHeight + 16, // 16px = p-4
-                        duration: 0.3, // <-- Faster duration
-                        ease: 'power3.out',
-                    });
-
-                    gsap.to(image, { scale: 1, duration: 0.6, ease: 'power3.out' });
-                    gsap.to(overlay, { backgroundColor: 'rgba(0,0,0,0.3)', duration: 0.6, ease: 'power3.out' });
-
+                    gsap.to(card, { width: expandedWidth, duration: 0.6, ease: 'power3.out' });
+                    gsap.to(descriptionWrapper, { height: descriptionText.offsetHeight + 16, duration: 0.3, ease: 'power3.out' });
+                    gsap.to(video, { scale: 1, duration: 0.6, ease: 'power3.out' });
+                    gsap.to(overlay, { backgroundColor: 'rgba(0,0,0,0.3)', duration: 0.6 });
                     cards.forEach((otherCard, otherIndex) => {
-                        if (index !== otherIndex) {
-                            gsap.to(otherCard, { opacity: 0.6, duration: 0.4, ease: 'power3.out' });
-                        }
+                        if (index !== otherIndex) gsap.to(otherCard, { opacity: 0.6, duration: 0.4 });
                     });
                 };
 
                 const handleMouseLeave = () => {
                     gsap.killTweensOf(descriptionWrapper);
-
-                    // --- FIX 3: Made the "hide" animation faster to match ---
-                    gsap.to(descriptionWrapper, { height: 0, duration: 0.3, ease: 'power3.out' });
-
-                    gsap.to(card, { width: normalWidth, duration: 0.6, ease: 'power3.out' });
-                    gsap.to(image, { scale: initialImageScale, duration: 0.6, ease: 'power3.out' });
-                    gsap.to(overlay, { backgroundColor: 'rgba(0,0,0,0.6)', duration: 0.6, ease: 'power3.out' });
-
-                    cards.forEach((otherCard) => {
-                        gsap.to(otherCard, { opacity: 1, duration: 0.4, ease: 'power3.out' });
-                    });
+                    gsap.to(descriptionWrapper, { height: 0, duration: 0.3 });
+                    gsap.to(card, { width: normalWidth, duration: 0.6 });
+                    gsap.to(video, { scale: initialScale, duration: 0.6 });
+                    gsap.to(overlay, { backgroundColor: 'rgba(0,0,0,0.6)', duration: 0.6 });
+                    cards.forEach((otherCard) => gsap.to(otherCard, { opacity: 1, duration: 0.4 }));
                 };
 
                 card.addEventListener('mouseenter', handleMouseEnter);
                 card.addEventListener('mouseleave', handleMouseLeave);
-
                 listeners.push({ card, handleMouseEnter, handleMouseLeave });
             });
         }, 100);
@@ -156,43 +108,66 @@ export default function Services() {
 
     return (
         <div className="bg-black text-white min-h-screen w-full flex flex-col font-sans overflow-hidden py-8">
-            <div
-                ref={cardsContainerRef}
-                className="flex items-center gap-8 w-full justify-center px-8"
-            >
+
+            {/* --- Desktop View --- */}
+            <div ref={cardsContainerRef} className="hidden md:flex items-center gap-8 w-full justify-center px-8">
                 {servicesData.map((item) => (
                     <div
                         ref={addToRefs}
                         key={item.id}
                         className="group relative flex-shrink-0 w-[22rem] h-[36rem] rounded-xl bg-[#1c1c1c] overflow-hidden cursor-pointer"
                     >
-                        {/* Background Image */}
-                        <img
-                            src={item.imageUrl}
-                            alt={item.title}
-                            className="card-image absolute top-0 left-0 w-full h-full object-cover"
+                        {/* Video */}
+                        <video
+                            src={item.videoUrl}
+                            className="card-video absolute top-0 left-0 w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
                         />
                         {/* Overlay */}
                         <div className="card-overlay absolute inset-0"></div>
 
-                        {/* Content Block */}
+                        {/* Content */}
                         <div className="relative z-10 h-full flex flex-col justify-between p-7">
-
-                            {/* Top Content: title and category */}
                             <div className="w-full overflow-hidden">
                                 <p className="text-gray-300 text-sm">{item.category}</p>
                                 <h3 className="text-4xl font-semibold mt-1">{item.title}</h3>
                             </div>
-
-                            {/* Bottom Content: description wrapper */}
                             <div className="card-description-wrapper h-0 overflow-hidden">
-                                <p className="card-description-text text-gray-200 text-base leading-relaxed p-4 bg-black bg-opacity-20 rounded-lg">
+                                <p className="card-description-text text-gray-200 text-base leading-relaxed p-4 bg-black bg-opacity-40 rounded-lg">
                                     {item.description}
                                 </p>
                             </div>
-
                         </div>
                     </div>
+                ))}
+            </div>
+
+            {/* --- Mobile View --- */}
+            <div className="md:hidden flex flex-col gap-8 w-full px-6">
+                {servicesData.map((item) => (
+                    <article key={item.id} className="relative w-full rounded-2xl overflow-hidden bg-[#1c1c1c] shadow-lg">
+                        {/* Video Container */}
+                        <div className="relative h-64 w-full">
+                            <video
+                                src={item.videoUrl}
+                                className="w-full h-full object-cover"
+                                autoPlay
+                                loop
+                                muted
+                            />
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                            {/* Title Overlay */}
+                            <div className="absolute bottom-0 left-0 p-5">
+                                <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
+                            </div>
+                        </div>
+                        <div className="p-5">
+                            <p className="text-gray-300 text-base leading-relaxed">{item.description}</p>
+                        </div>
+                    </article>
                 ))}
             </div>
         </div>

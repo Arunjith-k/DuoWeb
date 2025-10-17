@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-
+/*
 // Imports your specific video files from the assets folder
 import webDevVideo from '../assets/videos/WEB_DEVELOPMENT.mp4';
 import uiVideo from '../assets/videos/ui.mp4';
@@ -106,4 +106,16 @@ const ServicesGrid = () => (
     </section>
 );
 
-export default ServicesGrid;
+export default ServicesGrid;*/
+
+import React from 'react'
+
+const ServicesGrid = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default ServicesGrid
