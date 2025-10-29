@@ -159,30 +159,7 @@ const Hero = () => {
                         bring your vision to life.
                     </p>
 
-                    <div className="flex flex-col items-center gap-2">
-                        <a
-                            href="#works"
-                            ref={buttonRef} // 👈 button ref added
-                            className="
-                px-8 py-3
-                bg-gray-800/80
-                text-purple-400
-                font-light tracking-[0.2em] uppercase
-                border border-purple-400
-                rounded-md
-                backdrop-blur-sm
-                transition-all duration-300 ease-in-out
-                hover:bg-purple-500
-                hover:text-white
-                hover:font-semibold
-                hover:shadow-[0_0_25px_theme(colors.purple.500)]
-                hover:scale-105
-                focus:outline-none
-              "
-                        >
-                            See Our Works
-                        </a>
-                    </div>
+                    
                 </div>
 
                 <div
